@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amit</title>
+</head>
+<body>
+    <h1>max here</h1>
+    <button id="stop">stop</button>
+   
+</body>
+<script>
+    const msg = function(){
+        console.log("3 seconds afer popup messege")
+    };
+    
+    
+    const changeTxt = function(){
+         document.querySelector('h1').innerHTML = " changed text"
+         console.log("text chaged after 3 seconds executed successfully ")
+    }
+     
+   const changeHeader = setTimeout(changeTxt,3000);
+     
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeHeader)
+        console.log("header is now as it is");
+
+
+    })
+
+</script>
+</html>

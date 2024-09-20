@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amit</title>
+</head>
+<body>
+    <h1>three dot html its a file name </h1>
+    <button id="stop">stop</button>
+    <button id="start">start</button>
+
+
+   
+</body>
+<script>
+   
+
+document.querySelector('#start').addEventListener('click',function(){
+    console.log("start clicked")
+    intervalId = setInterval(function(){
+        console.log("time is ",Date.now())
+    },3000)
+}
+)
+
+document.querySelector('#stop').addEventListener('click',function(){
+    console.log("stop is presed")
+    clearInterval(intervalId);
+})
+
+
+</script>
+</html>

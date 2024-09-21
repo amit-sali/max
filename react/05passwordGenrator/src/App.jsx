@@ -30,7 +30,7 @@ function App() {
 
   useEffect(()=>{
     passGenerator()
-  },[length, numberAllowed,charAllow,passGenerator])
+  },[length, numberAllowed,charAllow,setPassword])
 
   return (
     <>

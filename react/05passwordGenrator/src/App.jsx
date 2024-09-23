@@ -1,81 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { useState, useCallback, useEffect } from "react"
+import './App.css'
 
-const sections = {
-  about: "Hi, I'm John Doe. I'm a full-stack developer with 5 years of experience.",
-  skills: "JavaScript, React, Node.js, Python, SQL, MongoDB",
-  projects: "1. E-commerce platform\n2. Weather app\n3. Task management system",
-  contact: "Email: john@example.com\nGitHub: github.com/johndoe\nLinkedIn: linkedin.com/in/johndoe",
-};
+function App() {
 
-export default function TerminalPortfolio() {
-  const [content, setContent] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
+  const[length,setLength] = useState(8);
+  const[numberAllowed,setNumberAllowrd] = useState(false);
+  const[charAllow,setCharAllow] = useState(false);
+  const[password,setPassword] = useState();
 
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
+  const passGenerator = useCallback(()=>{
+    let pass = ""
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-    return () => clearInterval(cursorInterval);
-  }, []);
+    if(numberAllowed){
+      str += "0123456789"
+    } 
+    if(charAllow){
+      str += "!@#$%^&*(){}[]~"
+    } 
 
-  const typeContent = (text) => {
-    let i = 0;
-    const typing = setInterval(() => {
-      if (i < text.length) {
-        setContent(prev => prev + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(typing);
-      }
-    }, 20);
-  };
+     for(let i =1;i<=length;i++){
+      let char = Math.floor(Math.random()* str.length + 1)
+      pass += str.charAt(char)
+     }
 
-  const handleCommand = (command) => {
-    setContent('');
-    if (sections[command]) {
-      typeContent(sections[command]);
-    } else {
-      typeContent("Command not recognized. Try 'about', 'skills', 'projects', or 'contact'.");
-    }
-  };
+     setPassword(pass)
+
+  },[length,numberAllowed,charAllow,password,setPassword])
+
+  useEffect(()=>{
+    passGenerator()
+  },[length, numberAllowed,charAllow,setPassword])
 
   return (
     <>
-    <div className="min-h-screen bg-gray-900 text-green-500 p-4 font-mono">
-      <div className="max-w-2xl mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-        <div className="bg-gray-700 px-4 py-2 flex items-center space-x-2">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          <span className="ml-2 text-sm text-gray-300">portfolio@terminal:~</span>
-        </div>
-        <div className="p-4 h-96 overflow-y-auto">
-          <p className="mb-4">Welcome to my portfolio. Type a command to begin:</p>
-          <p className="mb-2">about - Learn about me</p>
-          <p className="mb-2">skills - View my skills</p>
-          <p className="mb-2">projects - See my projects</p>
-          <p className="mb-4">contact - Get in touch</p>
-          <div className="flex items-center mb-2">
-            <ChevronRight className="mr-2" />
-            <span className="mr-2">portfolio@terminal:~$</span>
-            <input
-              type="text"
-              className="bg-transparent border-none outline-none flex-grow"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  handleCommand(e.currentTarget.value);
-                  e.currentTarget.value = '';
-                }
-              }}
-            />
-          </div>
-          <pre className="whitespace-pre-wrap">{content}</pre>
-          {showCursor && <span className="animate-pulse">▋</span>}
-        </div>
+       <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
+      <h1 className='text-white text-center my-3'>Password generator</h1>
+    <div className="flex shadow rounded-lg overflow-hidden mb-4">
+        <input
+            type="text"
+            className="outline-none w-full py-1 px-3"
+            placeholder={password}
+            readOnly
+            
+        />
+        <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
+        >copy</button>
+        
+    </div>
+    <div className='flex text-sm gap-x-2'>
+      <div className='flex items-center gap-x-1'>
+        <input type="range"
+         className='cursor-pointer'
+         min={6}
+         max={100}
+         value={length}
+         onChange={(e)=>{setLength(e.target.value)}}
+    
+         />
+          <label>Length: {length} </label>
+      </div>
+      <div className="flex items-center gap-x-1">
+      <input type="checkbox"/>
+      <label htmlFor="numberInput">Numbers</label>
+      </div>
+      <div className="flex items-center gap-x-1">
+      <input
+          type="checkbox"
+          defaultChecked={numberAllowed}
+          id="numberInput"
+          onChange={() => {
+              setNumberAllowed((prev) => !prev);
+          }}
+      />
+          <label htmlFor="characterInput">Characters</label>
       </div>
     </div>
+</div>
     </>
-  );
+  )
 }
+
+export default App

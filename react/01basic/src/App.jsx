@@ -1,10 +1,10 @@
-import Chai from "./Chai";
+import UEHook from "./UEHook"
 
 function App() {
   return (
   <>
-  <Chai/>
-  <h1>this is h1</h1>
+  <h1>App.jsx</h1>
+  <UEHook/>
   </>
   )
 }

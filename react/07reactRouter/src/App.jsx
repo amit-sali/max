@@ -1,13 +1,17 @@
 import { useState } from 'react'
-
+import Header from './assets/components/Header/Header'
+import Home from './assets/components/Home/Home'
+import Footer from './assets/components/Footer/Footer'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <h1 className='bg-green-600 p-4'>react router</h1>
+      
+      
+      
     </>
   )
 }

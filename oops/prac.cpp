@@ -10,6 +10,15 @@ class hero {
 
     public:
     string level;
+
+    hero(){
+        cout<<"non parameterized constructor called\n";
+    }
+
+    hero(int health){
+        cout<<" paramerized constructor is called \n";
+        this->health = health ;
+    }
    
     //getter setter are methods which gives us access to private class members
     //from outside of the class, condition is method should be public  
@@ -19,12 +28,12 @@ class hero {
     int setHealth(int h){
         health = h;
     }
-    
+
 };
 
 int main(){
     hero amit;  // object
-    amit.setHealth(10);
+   // amit.setHealth(10);
     amit.level = "diamond";
 
    cout<<"the power of amit is :"<<amit.getHealth()<<endl;

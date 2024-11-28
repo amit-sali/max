@@ -11,13 +11,13 @@ class hero {
     public:
     string level;
 
-    hero(){
+    hero(){ // non parametric constructor runs by default 
         cout<<"non parameterized constructor called\n";
     }
 
-    hero(int health){
+    hero(int health){    // parametrized constructor is called if parameter is passed 
         cout<<" paramerized constructor is called \n";
-        this->health = health ;
+        this->health = health ;       //this operator used to point object within the class
     }
    
     //getter setter are methods which gives us access to private class members
@@ -28,11 +28,10 @@ class hero {
     int setHealth(int h){
         health = h;
     }
-
 };
 
 int main(){
-    hero amit;  // object
+    hero amit(69);  // object
    // amit.setHealth(10);
     amit.level = "diamond";
 

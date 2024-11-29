@@ -5,9 +5,10 @@ using namespace std ;
 // class - user defined data-type 
 class hero {
     // public , private , protected : access specifiers , by default its private.
-     public:
+    public:
     int health;
     string level;
+    static int timeToComplete;
 
     hero(){ // non parametric constructor runs by default 
         cout<<"DEFAULT : non parameterized constructor called\n";
@@ -21,19 +22,34 @@ class hero {
    
     //getter setter are methods which gives us access to private class members
     //from outside of the class, condition is method should be public  
-    int getHealth(){
+    int getHealth(){              //getter
         return health;
     }
-    int setHealth(int h){
+    int setHealth(int h){   //setter
         health = h;
     }
+
+    static int methodStatic(){
+        cout<<"the value of static member of class is:"<<timeToComplete<<endl;
+    }
+
                 // destuctor is called to free up space with ~ sign
     ~hero(){
         cout<<"destructor is called\n";
     }
 };
 
+                                // static member of class
+int hero::timeToComplete = 5 ;  // belongs to only class 
+
+
 int main(){
+
+    cout<< "static member :"<<hero::timeToComplete<<endl;
+    cout<<" static function will called\n";
+
+                            //static function also belong to class
+    hero::methodStatic();   // they can be accesssed without declaring object and only access static data members
 
     hero suresh(99,"super punch") ;   //static declaration
     hero *dyna = new hero();          //dynamic declaration

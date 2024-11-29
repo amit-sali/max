@@ -15,4 +15,35 @@ int main(){
                                     // * --> dereference operator 
                                     // ruturns value store on memory address
      cout<<"the value stored on memory address 0x61ff08 :"<<*aptr;
+
+
+     cout<<"practice section\n";
+     int  num = 500;
+     int* numPtr = &num;
+     cout<<"address of num "<<numPtr<<endl;
+     cout<<"value of num :"<<*numPtr<<endl;
+
+    // pointer to pointer 
+    int** c = &aptr ;
+    cout<<"memory address of pointer variable aptr :"<<c<<endl;
+    cout<<"value at &aptr :"<<*c<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

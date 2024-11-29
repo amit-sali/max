@@ -27,24 +27,25 @@ class hero {
     int setHealth(int h){
         health = h;
     }
+                // destuctor is called to free up space with ~ sign
+    ~hero(){
+        cout<<"destructor is called\n";
+    }
 };
 
 int main(){
 
-    hero suresh(99,"super punch") ;
+    hero suresh(99,"super punch") ;   //static declaration
+    hero *dyna = new hero();          //dynamic declaration
+    delete dyna;
    
-    hero hulk(suresh);  //copy constructor 
-     cout<<"the power in int of hulk: "<<hulk.health<<endl;
-    cout<<"the power in string of hulk: "<<hulk.level<<endl;
+    // hero hulk(suresh);  //copy constructor 
+    //  cout<<"the power in int of hulk: "<<hulk.health<<endl;
+    // cout<<"the power in string of hulk: "<<hulk.level<<endl;
 
-    hero superman(hulk);
-    cout<<"superman health:"<<superman.health<<endl;
-    cout<<"superman level:"<<superman.level<<endl;
-
-
-
-
-
+    // hero superman(hulk);
+    // cout<<"superman health:"<<superman.health<<endl;
+    // cout<<"superman level:"<<superman.level<<endl;
 
 
 //    hero amit(69);  // object

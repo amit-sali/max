@@ -33,9 +33,13 @@ int main(){
 
     hero suresh(99,"super punch") ;
    
-    hero hulk(suresh);
+    hero hulk(suresh);  //copy constructor 
      cout<<"the power in int of hulk: "<<hulk.health<<endl;
     cout<<"the power in string of hulk: "<<hulk.level<<endl;
+
+    hero superman(hulk);
+    cout<<"superman health:"<<superman.health<<endl;
+    cout<<"superman level:"<<superman.level<<endl;
 
 
 

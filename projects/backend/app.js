@@ -2,11 +2,15 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
+const dbConnection = require('./config/db')
+const userModel = require('./models/user')
 
 app.use(morgan('dev'))          //third party middleware
 
 app.use(express.json())         //in-built middleware
 app.use(express.urlencoded({extended:true}))  
+
+app.use(express.static("public"))
 
 /*                             //custom middleware 
                                //can be coded for diff according to route

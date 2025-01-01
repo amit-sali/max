@@ -12,6 +12,7 @@ void printLinkedList(Node* n){
     }
 }
 
+
 int main(){
     Node* head = new Node();
     Node* second = new Node();

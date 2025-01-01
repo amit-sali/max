@@ -22,7 +22,7 @@ void insertAtFront(Node** head, int newData){
         *head = newNode;
 }
 
-void inserAtEnd(Node** head, int newData){
+void insertAtEnd(Node** head, int newData){
 
     //1. prepare new node
     Node* newNode = new Node();
@@ -34,6 +34,14 @@ void inserAtEnd(Node** head, int newData){
         *head = newNode ;
     }
 
+    //3. find the last node
+     Node* last = *head;
+     while(last-> next != NULL){
+        last = last-> next;
+     }
+
+    //4. insert newNode after last node (at the end)
+    last -> next = newNode;
 }
 
 int main(){
@@ -47,7 +55,7 @@ int main(){
         third -> data = 3;
         third -> next = NULL;
 
-    insertAtFront(&head,100);
-    insertAtEnd();
+    //insertAtFront(&head,100);
+    insertAtEnd(&head , 99);
     display(head);
 }

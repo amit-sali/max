@@ -15,7 +15,7 @@ function App() {
         <div className="container text-center">
           <AddToDo />
           <ToDoItem1 />
-          <ToDoItem2/>
+          <ToDoItem2 />
         </div>
       </center>
     </>

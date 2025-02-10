@@ -1,18 +1,19 @@
 import Item from "./Item";
 
-function FoodItems() {
-  let foodItems = ["apple", "banana", "avacado","grapes"];
+function FoodItems({items}) {
+ 
 
   return (
     <>
       <ul className="list-group">
-        {foodItems.map((items) => (
+      {items.map((items)=>(
           <Item key={items} foodItem={items} />
-          
-        ))}
+      ))
+      }
       </ul>
     </>
   );
 }
+
 
 export default  FoodItems;

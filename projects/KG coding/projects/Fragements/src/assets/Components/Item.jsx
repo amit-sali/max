@@ -1,7 +1,14 @@
+import styles from 'Item.module.css'
+
+
 const Item = ({foodItem}) => {
   return (
     <li  className="list-group-item">
-      {foodItem}
+      <span >
+        {foodItem}
+      </span>
+      <button className={StyleSheet.button}>buy</button>
+      
     </li>
   );
 };

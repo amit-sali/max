@@ -9,11 +9,14 @@ function App() {
   let foodItems = ["apple", "banana", "avacado","grapes"];
   return (
     <Container>
-      <center>
-        <h1>Healthy Food</h1>
+        <Container>
+          <h1>Healthy Food</h1>
+        </Container>
+        
         {/* <ErrorMessage/> */}
         <FoodItems items={foodItems}/>
-      </center>
+      
+      
     </Container>
   );
 }

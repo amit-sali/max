@@ -1,6 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
 import AppName from "./Components/AppName";
 import AddToDo from "./Components/AddToDo";
@@ -8,17 +7,15 @@ import AddToDo from "./Components/AddToDo";
 import TodoItems from "./Components/ToDoItems";
 
 function App() {
-
   const todoItems = [
     {
       name: "buy milk",
-      dueDate: "04/04/2004"
+      dueDate: "04/04/2004",
     },
     {
       name: "go college",
-      dueDate: "01/05/2005"
-    }
-
+      dueDate: "01/05/2005",
+    },
   ];
 
   return (
@@ -27,8 +24,7 @@ function App() {
         <AppName />
         <div className="container text-center">
           <AddToDo />
-         <TodoItems todoItems={todoItems}/>
-          
+          <TodoItems todoItems={todoItems} />
         </div>
       </center>
     </>

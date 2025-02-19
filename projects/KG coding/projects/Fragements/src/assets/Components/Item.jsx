@@ -1,4 +1,5 @@
-import styles from 'Item.module.css'
+import styles from './Item.module.css'
+
 
 
 const Item = ({foodItem}) => {

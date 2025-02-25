@@ -5,6 +5,7 @@ int main(){
     int number,rev=0;
     cout<<"enter the value of number: "<<endl;
     cin>>number;
+    int numberCopy = number;
 
     while(number > 0){
         int lastDigit = number % 10;
@@ -13,12 +14,12 @@ int main(){
 
     }
 
-    cout<<rev;
+    cout<<"the reverse value is :"<<rev<<endl;
 
-    //  if ( number == rev){
-    //     cout<<"the number"<<number<<"is palindrome"<<endl;
-    //  }
-    //  else{
-    //     cout<<"isnt palindrome"<<endl;
-    //  }
+    if(numberCopy == rev){
+        cout<<"palindrome"<<endl;
+    }else{
+        cout<<"not palindrome"<<endl;
+    }
+
 }
